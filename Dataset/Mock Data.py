@@ -1,10 +1,9 @@
-import panda as panda
-import numpy np
+import pandas as pd
+import numpy as np
 import random
-
 # Create a list of random names
 
-ef generate_synthetic_data(num_rows=200):
+def generate_synthetic_data(num_rows=200):
     data = []
     
     for i in range(1, num_rows + 1):
@@ -32,7 +31,7 @@ ef generate_synthetic_data(num_rows=200):
 df = generate_synthetic_data()
 
 # Save to CSV
-df.to_excel("synthetic_data.xlsx", index=False)
+df.to_csv("synthetic_data.csv", index=False)
 
 # Print sample output
 print(df.head())
