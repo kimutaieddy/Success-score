@@ -1,0 +1,15 @@
+name: oldendoorbn9353133_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - numpy
+  - pandas
+  - scikit-learn
+  - mlflow
+  - pip:
+    - azureml-core
+    - azureml-defaults
+    # Add other framework-specific packages here (e.g., tensorflow, torch)
