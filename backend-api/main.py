@@ -6,27 +6,23 @@ import os
 import logging
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
 
-# Configure logging
+
 logging.basicConfig(level=logging.DEBUG)
 
 app = FastAPI()
 
-# CORS configuration
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Input data model
 class InputData(BaseModel):
     input_data: dict
 
-# Azure ML endpoint configuration
 AZURE_ML_ENDPOINT_URL = os.getenv("AZURE_ML_ENDPOINT_URL")
 AZURE_ML_API_KEY = os.getenv("AZURE_ML_API_KEY")
 
@@ -94,7 +90,6 @@ async def inference(input_data: InputData):
         response.raise_for_status()
         response_json = response.json()
         
-        # Handling different response formats
         if isinstance(response_json, list):
             model_output = response_json[0]
         elif isinstance(response_json, dict) and "prediction" in response_json:
@@ -121,7 +116,7 @@ async def inference(input_data: InputData):
         logging.error(f"Unexpected error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-# Run the app
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=5000, reload=True)
