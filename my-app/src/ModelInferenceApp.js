@@ -44,7 +44,7 @@ const ModelInferenceApp = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/inference", requestData);
+      const res = await axios.post("http://localhost:8000/inference", requestData);
       setResponse(res.data);
     } catch (err) {
       setError("Error fetching model response. Check backend logs.");
