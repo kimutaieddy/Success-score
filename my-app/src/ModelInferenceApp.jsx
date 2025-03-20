@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const ModelInferenceApp = () => {
+const App = () => {
   const [formData, setFormData] = useState({
     budget: "",
     employees_impacted: "",
@@ -9,11 +9,11 @@ const ModelInferenceApp = () => {
     training_hours: "",
     communication_score: "",
     leadership_alignment: "",
-    success_flag: "",
     _avg_salary: "",
     _productivity_gain: "",
   });
-  const [response, setResponse] = useState(null);
+
+  const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -29,34 +29,34 @@ const ModelInferenceApp = () => {
     const requestData = {
       input_data: {
         columns: Object.keys(formData),
-        data: [[
-          parseFloat(formData.budget),
-          parseInt(formData.employees_impacted),
-          parseInt(formData.duration_months),
-          parseFloat(formData.training_hours),
-          parseFloat(formData.communication_score),
-          parseInt(formData.leadership_alignment),
-          parseInt(formData.success_flag),
-          parseFloat(formData._avg_salary),
-          parseFloat(formData._productivity_gain)
-        ]]
+        data: [
+          [
+            parseFloat(formData.budget),
+            parseInt(formData.employees_impacted),
+            parseInt(formData.duration_months),
+            parseFloat(formData.training_hours),
+            parseFloat(formData.communication_score),
+            parseInt(formData.leadership_alignment),
+            parseFloat(formData._avg_salary),
+            parseFloat(formData._productivity_gain),
+          ],
+        ],
       },
     };
 
     try {
-      const res = await axios.post("http://localhost:8000/inference", requestData);
-      setResponse(res.data);
+      const res = await axios.post("http://localhost:5000/inference", requestData);
+      setResults(res.data);
     } catch (err) {
-      setError("Error fetching model response. Check backend logs.");
+      setError(`Error: ${err.response ? err.response.data.detail : err.message}`);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
+    <div style={{ padding: "20px", maxWidth: "800px", margin: "auto" }}>
       <h2>ROI Calculator for Transformation Success</h2>
-      <p>Enter details to calculate predicted ROI and insights for change initiatives.</p>
       <form onSubmit={handleSubmit}>
         {Object.keys(formData).map((key) => (
           <div key={key} style={{ marginBottom: "10px" }}>
@@ -75,16 +75,16 @@ const ModelInferenceApp = () => {
         </button>
       </form>
 
-      {response && (
-        <div>
-          <h3>Model Response:</h3>
-          <pre>{JSON.stringify(response, null, 2)}</pre>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      {results && (
+        <div style={{ marginTop: "20px" }}>
+          <h3>Results:</h3>
+          <pre>{JSON.stringify(results, null, 2)}</pre>
         </div>
       )}
-
-      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 };
 
-export default ModelInferenceApp;
+export default App;
