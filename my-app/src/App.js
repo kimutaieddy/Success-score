@@ -3,7 +3,8 @@ import ModelInferenceApp from "./ModelInferenceApp";
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <h1>AI ROI Dashboard</h1>
       <ModelInferenceApp />
     </div>
   );

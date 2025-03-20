@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ROIChart from "./ROIChart";
 
-const App = () => {
+const ModelInferenceApp = () => {
   const [formData, setFormData] = useState({
     budget: "",
     employees_impacted: "",
@@ -17,10 +18,12 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // Handle form input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Submit the form and fetch results from FastAPI
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -45,8 +48,12 @@ const App = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/inference", requestData);
-      setResults(res.data);
+      // Call your FastAPI endpoint
+      const res = await axios.post("http://localhost:5000/inference", requestData, {
+        headers: { "Content-Type": "application/json" },
+      });
+
+      setResults(res.data); // Store the ROI metrics in state
     } catch (err) {
       setError(`Error: ${err.response ? err.response.data.detail : err.message}`);
     } finally {
@@ -57,6 +64,7 @@ const App = () => {
   return (
     <div style={{ padding: "20px", maxWidth: "800px", margin: "auto" }}>
       <h2>ROI Calculator for Transformation Success</h2>
+      {/* The form for user inputs */}
       <form onSubmit={handleSubmit}>
         {Object.keys(formData).map((key) => (
           <div key={key} style={{ marginBottom: "10px" }}>
@@ -75,16 +83,21 @@ const App = () => {
         </button>
       </form>
 
+      {/* Display any errors */}
       {error && <p style={{ color: "red" }}>{error}</p>}
 
+      {/* Show the chart only if we have results */}
       {results && (
         <div style={{ marginTop: "20px" }}>
-          <h3>Results:</h3>
+          <h3>Backend Results:</h3>
           <pre>{JSON.stringify(results, null, 2)}</pre>
+
+          {/* Pass the results to the ROIChart component */}
+          <ROIChart data={results} />
         </div>
       )}
     </div>
   );
 };
 
-export default App;
+export default ModelInferenceApp;
