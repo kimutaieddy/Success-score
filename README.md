@@ -1,10 +1,16 @@
+# ROI-Calculator
+## Overview
+An AI-driven ROI calculator designed to help business leaders forecast project ROI and mitigate transformation risks.
+## Getting Started
+1. Clone this repository.
+2. Set up Python environment and install dependencies from the respective 'requirements.txt' files.
+3. Follow the instructions in each folder to run the application locally or deploy it on Azure.
+   app/app.py | deployment/score.py
 # Success-score
 ## Microsoft HackBox Innovation Hackathon March 2025 - Group3 - GenSpark
 ### Participants
 | 1. Eliza Ochoa  | 2. Eddy Kimutai |  3. Sanskritti Adhikari  | 4. Shivangi Nayak | 5. Andrea B |
 | -------------   | -------------   |  ----------------------  | ----------------- | ----------- |
-
-
    
 ### Description
 This project aims to help organizations assess the return on investment (ROI) for transformation initiatives by leveraging AI-driven predictive insights. With 70% of transformation projects failing, this tool enables business leaders to make data-driven decisions, mitigate risks, and maximize impact.
