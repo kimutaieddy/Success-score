@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 logging.basicConfig(level=logging.DEBUG)
 
 app = FastAPI()
@@ -19,6 +18,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 # Input data model
 class InputData(BaseModel):
     input_data: dict
@@ -70,6 +70,11 @@ def calculate_roi_metrics(input_values, success_status):
         logging.error(f"Error in ROI calculation: {e}")
         raise ValueError("Invalid input data for ROI calculation.")
 
+# Root endpoint
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the AI ROI Dashboard API"}
+
 # Inference endpoint
 @app.post("/inference")
 async def inference(input_data: InputData):
@@ -115,7 +120,6 @@ async def inference(input_data: InputData):
     except Exception as e:
         logging.error(f"Unexpected error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
-
 
 if __name__ == "__main__":
     import uvicorn

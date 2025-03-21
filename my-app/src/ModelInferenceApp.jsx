@@ -49,7 +49,7 @@ const ModelInferenceApp = () => {
 
     try {
       // Call your FastAPI endpoint
-      const res = await axios.post("http://localhost:5000/inference", requestData, {
+      const res = await axios.post("http://localhost:8000/inference", requestData, {
         headers: { "Content-Type": "application/json" },
       });
 
