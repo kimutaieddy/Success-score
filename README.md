@@ -1,11 +1,4 @@
-# ROI-Calculator
-## Overview
-An AI-driven ROI calculator designed to help business leaders forecast project ROI and mitigate transformation risks.
-## Getting Started
-1. Clone this repository.
-2. Set up the Python environment and install dependencies from the respective 'requirements.txt' files.
-3. Follow the instructions in each folder to run the application locally or deploy it on Azure.
-# Success-score
+# Success-score: ROI-Calculator
 ## Microsoft HackBox Innovation Hackathon March 2025 - Group3 - GenSpark
 ### Participants
 | 1. Eliza Ochoa  | 2. Eddy Kimutai |  3. Sanskritti Adhikari  | 4. Shivangi Nayak | 5. Andrea B |
@@ -17,28 +10,21 @@ This project aims to help organizations assess the return on investment (ROI) fo
 
 > Al Statistics, ROI calculator, Predictive Insights, Financial Modeling, return on investment, profitability analysis, investment efficiency, Financial Planning, Business Growth, cost-benefit analysis, revenue forecasting, Performance Metrics, smart investing
 
-
+## Getting Started
+```
+1. Clone this repository.
+2. Set up the Python environment and install dependencies from the respective 'requirements.txt' files.
+3. Follow the instructions in each folder to run the application locally or deploy it on Azure.
+```
 
 ## Project Demo
-[insert gif video here]
-~ This video demonstration describes: The project goals of 'Success Score', Each participants solution components/architecture, and How the team thought through this approach
-- Video Link: [Insert video link here]
-- Powerpoint presentation: [insert link to powerpoint for video here]
+~ This powerpoint demonstration describes: The project goals of 'Success Score', Each participants solution components/architecture, and How the team thought through this approach
+- Powerpoint presentation:[ https://drive.google.com/file/d/11DIBXFCf2bCjIqxU1sOB5rl0hI2R_TMM/view?usp=sharing](https://drive.google.com/file/d/11DIBXFCf2bCjIqxU1sOB5rl0hI2R_TMM/view?usp=sharing)
 
 
 
 # Synopsis Implementation Outline
-[insert detailed synposis of relevant code files, processes, etc]
-#### Input Metrics and Formula: Change Management
-<img src="https://github.com/user-attachments/assets/d631dba6-6b69-41c1-a8f0-0358ec063f71" alt="Input Metrics and Formula: Change Management" width="400"/>
-<img src="https://github.com/user-attachments/assets/d9b7d5a0-726c-4634-a264-4cf65cbdb69e" alt="Input Metrics and Formula: Change Management" width="400"/>
-
-#### Key Performance Indicators (KPIs): Percentage Score Formula 
-<img src="https://github.com/user-attachments/assets/6451b695-2440-4c10-b512-1234d13811c0" alt="Input Metrics and Formula: Change Management" width="400"/>
-
-```
-DRAFT (Last Updated: 3/19/25)
-### Eliza's Contributtions
+### Contributtions
 **3 PKIs**
 - 1-Predictive insights
 - 2-Actionable recommendations for change initiatives
@@ -51,18 +37,16 @@ DRAFT (Last Updated: 3/19/25)
 <img src="https://github.com/user-attachments/assets/6451b695-2440-4c10-b512-1234d13811c0" alt="Input Metrics and Formula: Change Management" width="400"/>
 - Utilizing change management metrics for tangible and intangible inputs
 
-```
-
 
 
 # Key Learnings
 ~ Here is each participants key learnings:
 | Participant             | What have you learned in this Hackathon? |
 | ----------------------  | ----------------------------------------- |
-| 1. Eliza Ochoa          | [Have answer by 3/21/25]  |
-| 2. Eddy Kimutai         | [Have answer by 3/21/25]  |
-| 3. Sanskritti Adhikari  | [Have answer by 3/21/25]  |
-| 4. Shivangi Nayak       | [Have answer by 3/21/25]  |
+| 1. Eliza Ochoa          |  I've been tasked with the FastAPI backend and frontend setup. I've learned how to create a seamless connection between the backend and frontend, and the importance of Docker                              for consistent deployment across environments.  |
+| 2. Eddy Kimutai         | I've focused on integrating Azure Cognitive Services and Machine Learning. I've learned how to enhance our application with AI capabilities   and the significance of predictive modeling for better decision-making.  |
+| 3. Sanskritti Adhikari  | I've been responsible for Power BI integration. I've learned how to visualize data effectively and create insightful reports that drive decision-making for our ROI calculator project.  |
+| 4. Shivangi Nayak       | I've contributed to various aspects of the project. I've learned the value of teamwork and how collaboration enhances problem-solving and innovation in our hackathon journey. |
 | 5. Andrea B             | I have been tasked to implement the CI/CD Pipeline with GitHub Actions. I've learned to polish this ROI calculator project by automating deployment for continuous updates and                              reduced downtime. This task required extensive research on how to utilize GitHub Actions.  |
 
 
