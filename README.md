@@ -6,15 +6,74 @@
    
 ### Description
 This project aims to help organizations assess the return on investment (ROI) for transformation initiatives by leveraging AI-driven predictive insights. With 70% of transformation projects failing, this tool enables business leaders to make data-driven decisions, mitigate risks, and maximize impact.
+
 > "Maximize Profits, Minimize Guessworks."
 
-> Al Statistics, ROI calculator, Predictive Insights, Financial Modeling, return on investment, profitability analysis, investment efficiency, Financial Planning, Business Growth, cost-benefit analysis, revenue forecasting, Performance Metrics, smart investing
+**Keywords:** AI Statistics, ROI calculator, Predictive Insights, Financial Modeling, return on investment, profitability analysis, investment efficiency, Financial Planning, Business Growth, cost-benefit analysis, revenue forecasting, Performance Metrics, smart investing
 
 ## Getting Started
+
+### Prerequisites
+- Python 3.8 or higher
+- Node.js 14 or higher
+- Azure Machine Learning account (for ML inference)
+
+### Installation
+
+1. **Clone this repository:**
+```bash
+git clone https://github.com/kimutaieddy/Success-score.git
+cd Success-score
 ```
-1. Clone this repository.
-2. Set up the Python environment and install dependencies from the respective 'requirements.txt' files.
-3. Follow the instructions in each folder to run the application locally or deploy it on Azure.
+
+2. **Backend Setup:**
+```bash
+cd backend-api
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Create a `.env` file in `backend-api/` with your Azure credentials:
+```
+AZURE_ML_ENDPOINT_URL=your_endpoint_url_here
+AZURE_ML_API_KEY=your_api_key_here
+```
+
+3. **Frontend Setup:**
+```bash
+cd my-app
+npm install
+```
+
+### Running the Application
+
+**Start the backend (from `backend-api/` directory):**
+```bash
+python main.py
+```
+The API will run on `http://localhost:5000`
+
+**Start the frontend (from `my-app/` directory):**
+```bash
+npm start
+```
+The React app will open at `http://localhost:3000`
+
+### Project Structure
+```
+Success-score/
+├── backend-api/          # FastAPI backend
+│   ├── main.py          # API endpoints and ROI calculations
+│   ├── requirements.txt # Python dependencies
+│   └── README.md        # Backend documentation
+├── my-app/              # React frontend
+│   ├── src/
+│   │   ├── ModelInferenceApp.jsx  # Main form component
+│   │   └── ROIChart.jsx           # Visualization component
+│   └── package.json     # Node.js dependencies
+├── Dataset/             # Training data and ML scoring scripts
+└── README.md           # This file
 ```
 
 ## Project Demo
@@ -24,14 +83,22 @@ This project aims to help organizations assess the return on investment (ROI) fo
 
 
 # Synopsis Implementation Outline
-### Contributtions
-**3 PKIs**
-- 1-Predictive insights
-- 2-Actionable recommendations for change initiatives
-- 3-Visualization & reporting
+
+### Contributions
+
+**3 Key Performance Indicators (KPIs)**
+1. Predictive insights
+2. Actionable recommendations for change initiatives
+3. Visualization & reporting
 
 **Inputs, Risks/Constraints, Potential/Benefits**
-- Calculating percentage % for 1-reducing downtime during transition scores, 2-employee productivity scores, and 3-enhanced customer satisfaction scores
+
+The calculator measures three key scores:
+1. Reducing downtime during transition scores
+2. Employee productivity scores
+3. Enhanced customer satisfaction scores
+
+#### Input Metrics and Formulas
 <img src="https://github.com/user-attachments/assets/d631dba6-6b69-41c1-a8f0-0358ec063f71" alt="Input Metrics and Formula: Change Management" width="400"/>
 <img src="https://github.com/user-attachments/assets/d9b7d5a0-726c-4634-a264-4cf65cbdb69e" alt="Input Metrics and Formula: Change Management" width="400"/>
 <img src="https://github.com/user-attachments/assets/6451b695-2440-4c10-b512-1234d13811c0" alt="Input Metrics and Formula: Change Management" width="400"/>
@@ -40,7 +107,9 @@ This project aims to help organizations assess the return on investment (ROI) fo
 
 
 # Key Learnings
-~ Here is each participants key learnings:
+
+Team members' experiences and takeaways from the hackathon:
+
 | Participant             | What have you learned in this Hackathon? |
 | ----------------------  | ----------------------------------------- |
 | 1. Eliza Ochoa          |  I've been tasked with the FastAPI backend and frontend setup. I've learned how to create a seamless connection between the backend and frontend, and the importance of Docker                              for consistent deployment across environments.  |
@@ -51,13 +120,12 @@ This project aims to help organizations assess the return on investment (ROI) fo
 
 
 
-# Credit, References, and License
-#### Credits
-```
-Previous challenge winners --> https://github.com/tonidavisj/safedocsai
-```
-#### Reference List
- ```Bash
+# Credits, References, and License
+
+### Credits
+Previous challenge winners: [SafeDocsAI](https://github.com/tonidavisj/safedocsai)
+
+### References
  • Creasey, T. (2024, January 9). Cost-benefit analysis of change management. Prosci. 
 Retrieved March 19, 2025, from https://www.prosci.com/blog/cost-benefit
 analysis-change-management 
@@ -87,8 +155,9 @@ Retrieved March 19, 2025, from https://www.aihr.com/blog/change-management
 metrics/ 
 • Microsoft. (2025). Azure portal documentation. Retrieved March 19, 2025, from 
 https://learn.microsoft.com/en-us/azure/azure-portal/
-```
-#### License
-```
-[Insert License here]
+
+### License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
